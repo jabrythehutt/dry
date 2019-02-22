@@ -1,0 +1,25 @@
+service: dry
+
+profile: daniel
+
+plugins:
+  - serverless-s3-sync
+
+provider:
+  region: eu-west-1
+  name: aws
+  runtime: nodejs8.10
+
+custom:
+  stage: "${opt:stage, self:provider.stage}"
+  prefix: "${self:service}-${self:custom.stage}"
+  siteName: "${self:custom.prefix}-site"
+  cloudfrontInvalidate:
+    distributionId: ['Fn::GetAtt': [ SiteCloudFrontDistribution, DomainName ]]
+    # distributionIdKey: 'CDNDistributionId' #conditional, distributionId or distributionIdKey is required.
+    items: # one or more paths required
+      - '/index.html'
+
+resources:
+  - ${file(resources/cognito-identity-pool.yml)}
+  - ${file(resources/site.yml)}

@@ -28,7 +28,7 @@
             ],
             "styles": [
               "src/custom-theme.scss",
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
