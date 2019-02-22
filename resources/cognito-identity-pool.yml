@@ -1,4 +1,16 @@
 Resources:
+  # Identity Poool
+  CognitoIdentityPool:
+    Type: "AWS::Cognito::IdentityPool"
+    Properties:
+      IdentityPoolName: ${self:service}_${self:custom.stage}_pool
+      AllowUnauthenticatedIdentities: true
+      # Link to our User Pool
+#      CognitoIdentityProviders:
+#        - ClientId:
+#            Ref: CognitoUserPoolClient
+#          ProviderName:
+#            Fn::GetAtt: [ "CognitoUserPool", "ProviderName" ]
   CognitoIdentityPoolRoles:
     Type: AWS::Cognito::IdentityPoolRoleAttachment
     Properties:

@@ -1,7 +1,4 @@
 service: dry
-
-profile: daniel
-
 plugins:
   - serverless-s3-sync
 
@@ -9,6 +6,7 @@ provider:
   region: eu-west-1
   name: aws
   runtime: nodejs8.10
+  profile: daniel
 
 custom:
   stage: "${opt:stage, self:provider.stage}"
