@@ -1,5 +1,5 @@
 <ng-container *ngIf="notePromise | async as noteOptional">
   <ng-container *ngIf="noteOptional.exists">
-    <p>{{noteOptional.item.text}}</p>
+    <p [innerHTML]="noteOptional.item.text | noteExtract:section.entity | highlight:section.entity.Text"></p>
   </ng-container>
 </ng-container>

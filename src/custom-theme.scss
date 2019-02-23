@@ -29,3 +29,7 @@ $dry-theme: mat-light-theme($dry-primary, $dry-accent, $dry-warn);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.highlight {
+  background-color: yellow;
+}

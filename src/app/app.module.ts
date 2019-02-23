@@ -27,6 +27,8 @@ import { ProcessingNoteComponent } from './processing-note/processing-note.compo
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AnalysisSectionComponent } from './analysis-section/analysis-section.component';
+import { NoteExtractPipe } from './analysis-section/note-extract.pipe';
+import { HighlightPipe } from './highlight.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { AnalysisSectionComponent } from './analysis-section/analysis-section.co
     AnalysisComponent,
     ProcessingComponent,
     ProcessingNoteComponent,
-    AnalysisSectionComponent
+    AnalysisSectionComponent,
+    NoteExtractPipe,
+    HighlightPipe
   ],
   imports: [
     MatExpansionModule,
