@@ -5,7 +5,7 @@ import {AwsService} from '../aws.service';
 import {UserEntityDao} from '../data/user.entity.dao';
 import {User} from '../user/user';
 import {HashService} from '../data/hash.service';
-
+import * as stack from '../../../.serverless/stack.json';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class NoteDaoService extends UserEntityDao<Entity, Note> {
 
   constructor(awsService: AwsService,
               private hashService: HashService) {
-    super(awsService.dynamodb(), 'bar');
+    super(awsService.dynamodb(), stack.notesTableName);
   }
 
   async saveNote(note: Note): Promise<void> {

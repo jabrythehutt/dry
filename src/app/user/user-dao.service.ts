@@ -4,6 +4,7 @@ import {Entity} from '../data/entity';
 import {User} from './user';
 import {AwsService} from '../aws.service';
 import {Optional} from '../data/optional';
+import * as stack from '../../../.serverless/stack.json';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UserDaoService extends Dao<Entity, User>  {
   private users = ['James', 'Richard', 'Jane', 'Oliver'].map(name => ({name, id: name}));
 
   constructor(awsService: AwsService) {
-    super(awsService.dynamodb(), 'foo');
+    super(awsService.dynamodb(), stack.usersTableName);
   }
 
   async list(): Promise<User[]> {
