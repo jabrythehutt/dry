@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../user';
+import {User} from '../user/user';
 
 @Component({
   selector: 'app-upload',
