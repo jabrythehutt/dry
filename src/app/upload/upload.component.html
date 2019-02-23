@@ -6,11 +6,11 @@
   </mat-step>
   <mat-step label="Upload notes">
     <ng-container *ngIf="selectedUser">
-      <app-upload-notes></app-upload-notes>
+      <app-upload-notes [(text)]="text"></app-upload-notes>
     </ng-container>
   </mat-step>
   <mat-step label="Done">
-    <ng-container *ngIf="selectedUser">
+    <ng-container *ngIf="selectedUser && text">
       <button mat-button [routerLink]="['/result', selectedUser.id]" (click)="goClicked()">Go</button>
     </ng-container>
   </mat-step>

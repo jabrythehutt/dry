@@ -12,6 +12,7 @@ export class UploadComponent implements OnInit {
   usersPromise: Promise<User[]>;
 
   selectedUser: User;
+  text: string;
 
   constructor(private usersDao: UserDaoService) { }
 

@@ -1,4 +1,4 @@
 <mat-tab-group>
-  <mat-tab *ngFor="let entityType of entityTypes" [label]="entityType">
+  <mat-tab *ngFor="let entityType of entityTypes" [label]="entityType | titlecase">
   </mat-tab>
 </mat-tab-group>
