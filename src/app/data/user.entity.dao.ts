@@ -3,7 +3,7 @@ import {UserEntity} from './user.entity';
 import {DocumentClient} from 'aws-sdk/lib/dynamodb/document_client';
 import QueryInput = DocumentClient.QueryInput;
 
-import * as userEntityTableConfig from '../../../resources/user.entity.table.json';
+import * as userEntityTableConfig from '../../../resources/user-entity-table.json';
 
 export class UserEntityDao<K, V extends UserEntity & K> extends Dao<K, V> {
 

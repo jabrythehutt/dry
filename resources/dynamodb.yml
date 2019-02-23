@@ -2,25 +2,28 @@ Resources:
   NotesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      AttributeDefinitions: ${file(user.entity.table.json):AttributeDefinitions}
-      KeySchema: ${file(user.entity.table.json):KeySchema}
-      GlobalSecondaryIndexes: ${file(user.entity.table.json):GlobalSecondaryIndexes}
+      BillingMode: "PAY_PER_REQUEST"
+      AttributeDefinitions: ${file(resources/user-entity-table.json):AttributeDefinitions}
+      KeySchema: ${file(resources/user-entity-table.json):KeySchema}
+      GlobalSecondaryIndexes: ${file(resources/user-entity-table.json):GlobalSecondaryIndexes}
       TableName: ${self:custom.notesTableName}
 
   UsersTable:
     Type: AWS::DynamoDB::Table
     Properties:
+      BillingMode: "PAY_PER_REQUEST"
       TableName: ${self:custom.usersTableName}
-      AttributeDefinitions: ${file(entity.table.json):AttributeDefinitions}
-      KeySchema: ${file(entity.table.json):KeySchema}
+      AttributeDefinitions: ${file(resources/entity-table.json):AttributeDefinitions}
+      KeySchema: ${file(resources/entity-table.json):KeySchema}
 
   AnalysisTable:
     Type: AWS::DynamoDB::Table
     Properties:
+      BillingMode: "PAY_PER_REQUEST"
       TableName: ${self:custom.analysisTableName}
-      AttributeDefinitions: ${file(user.entity.table.json):AttributeDefinitions}
-      KeySchema: ${file(user.entity.table.json):KeySchema}
-      GlobalSecondaryIndexes: ${file(user.entity.table.json):GlobalSecondaryIndexes}
+      AttributeDefinitions: ${file(resources/user-entity-table.json):AttributeDefinitions}
+      KeySchema: ${file(resources/user-entity-table.json):KeySchema}
+      GlobalSecondaryIndexes: ${file(resources/user-entity-table.json):GlobalSecondaryIndexes}
 
 Outputs:
   notesTableName:
