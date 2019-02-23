@@ -9,7 +9,7 @@ import {NoteDaoService} from '../note/note-dao.service';
 })
 export class ProcessingComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {
+  constructor(public route: ActivatedRoute) {
   }
 
   ngOnInit() {

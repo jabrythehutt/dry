@@ -33,7 +33,7 @@ export class ProcessingNoteComponent implements OnInit {
     const key = {id: this.noteId};
     const note = await this.notesDao.find(key);
     const existingAnalysis = await this.analysisDao.find(key);
-    if (!existingAnalysis) {
+    if (!existingAnalysis.exists) {
       console.log('No analysis found, requesting entities');
       const entities = await this.analysisService.getEntities(note.item.text);
       await this.analysisDao.save([

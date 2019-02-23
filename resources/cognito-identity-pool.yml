@@ -102,6 +102,7 @@ Resources:
                   - dynamodb:GetItem
                   - dynamodb:PutItem
                   - dynamodb:UpdateItem
+                  - dynamodb:BatchWriteItem
                 Resource:
                   - "arn:aws:dynamodb:${self:provider.region}:#{AWS::AccountId}:table/${self:custom.notesTableName}"
                   - "arn:aws:dynamodb:${self:provider.region}:#{AWS::AccountId}:table/${self:custom.notesTableName}/*"
@@ -114,6 +115,11 @@ Resources:
                   - dynamodb:GetItem
                 Resource:
                   - "arn:aws:dynamodb:${self:provider.region}:#{AWS::AccountId}:table/${self:custom.usersTableName}"
+              - Effect: "Allow"
+                Action:
+                  - comprehend:DetectEntities
+                Resource:
+                  - "*"
 
 # Print out the Id of the Identity Pool that is created
 Outputs:
