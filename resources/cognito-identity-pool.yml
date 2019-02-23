@@ -98,6 +98,8 @@ Resources:
 
 # Print out the Id of the Identity Pool that is created
 Outputs:
-  IdentityPoolId:
+  identityPoolId:
     Value:
       Ref: CognitoIdentityPool
+  region:
+    Value: ${self:provider.region}
