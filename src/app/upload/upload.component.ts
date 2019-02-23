@@ -28,8 +28,8 @@ export class UploadComponent implements OnInit {
     await this.notesDao.saveNote(note);
   }
 
-  goClicked() {
-    console.log(this.selectedUser);
+  async goClicked() {
+    await this.saveNote();
   }
 
 }

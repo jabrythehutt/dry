@@ -3,9 +3,12 @@ import {UserEntity} from './user.entity';
 import {DocumentClient} from 'aws-sdk/lib/dynamodb/document_client';
 import QueryInput = DocumentClient.QueryInput;
 
+import * as userEntityTableConfig from '../../../resources/user.entity.table.json';
+
 export class UserEntityDao<K, V extends UserEntity & K> extends Dao<K, V> {
 
-  constructor(dbPromise: Promise<DocumentClient>, tableName: string, public indexName: string) {
+  indexName = userEntityTableConfig.GlobalSecondaryIndexes[0].IndexName;
+  constructor(dbPromise: Promise<DocumentClient>, tableName: string) {
     super(dbPromise, tableName);
   }
 

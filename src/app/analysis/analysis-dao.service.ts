@@ -10,6 +10,6 @@ import {AwsService} from '../aws.service';
 export class AnalysisDaoService extends UserEntityDao<Entity, Analysis> {
 
   constructor(awsService: AwsService) {
-    super(awsService.dynamodb(), 'analysis', 'userId-index');
+    super(awsService.dynamodb(), 'analysis');
   }
 }

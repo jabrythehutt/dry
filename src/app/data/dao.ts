@@ -2,11 +2,14 @@ import {ExpressionAttributes} from './expression.attributes';
 import {QueryInput} from 'aws-sdk/clients/dynamodb';
 import {Optional} from './optional';
 import {DocumentClient} from 'aws-sdk/lib/dynamodb/document_client';
+import {EventEmitter} from '@angular/core';
 
 export class Dao<K, T extends K> {
 
   // DynamoDB allows you to write in batches of max 25 items
   batchSize = 25;
+  modified: EventEmitter<K[]> = new EventEmitter();
+  deleted: EventEmitter<K[]> = new EventEmitter();
 
   constructor(protected dbPromise: Promise<DocumentClient>,
               protected tableName: string) {
@@ -69,6 +72,7 @@ export class Dao<K, T extends K> {
           }))
         }
       }).promise();
+      this.deleted.emit(batch);
     }
   }
 
@@ -85,6 +89,7 @@ export class Dao<K, T extends K> {
           }))
         }
       }).promise();
+      this.modified.emit(batch);
     }
 
   }

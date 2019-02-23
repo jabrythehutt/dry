@@ -11,8 +11,9 @@ provider:
   profile: daniel
 
 custom:
-  aliasDNSName: "drydepaul.com"
-  aliasHostedZoneId: "Z2FDTNDATAQYW2"
+  notesTableName: "${self:custom.prefix}-notes"
+  usersTableName: "${self:custom.prefix}-users"
+  analysisTableName: "${self:custom.prefix}-analysis"
   output:
     # handler: output.handler
     file: .serverless/stack.json
@@ -31,4 +32,4 @@ custom:
 resources:
   - ${file(resources/cognito-identity-pool.yml)}
   - ${file(resources/site.yml)}
-
+  - ${file(resources/dynamodb.yml)}

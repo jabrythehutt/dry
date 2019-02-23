@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule, MatButtonModule,
-  MatFormFieldModule, MatInputModule,
+  MatFormFieldModule, MatInputModule, MatProgressSpinnerModule,
   MatSelectModule,
   MatStepperModule,
   MatTabsModule,
@@ -22,6 +22,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ResultComponent } from './result/result.component';
 import { UserResultComponent } from './user-result/user-result.component';
 import { AnalysisComponent } from './analysis/analysis.component';
+import { ProcessingComponent } from './processing/processing.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +34,11 @@ import { AnalysisComponent } from './analysis/analysis.component';
     UploadRecordingComponent,
     ResultComponent,
     UserResultComponent,
-    AnalysisComponent
+    AnalysisComponent,
+    ProcessingComponent
   ],
   imports: [
+    MatProgressSpinnerModule,
     MatTabsModule,
     FormsModule,
     MatButtonModule,

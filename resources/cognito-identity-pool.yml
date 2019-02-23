@@ -95,6 +95,25 @@ Resources:
                   - "cognito-sync:*"
                   - "cognito-identity:*"
                 Resource: "*"
+              - Effect: "Allow"
+                Action:
+                  - dynamodb:Query
+                  - dynamodb:Scan
+                  - dynamodb:GetItem
+                  - dynamodb:PutItem
+                  - dynamodb:UpdateItem
+                Resource:
+                  - "arn:aws:dynamodb:${self:provider.region}:#{AWS::AccountId}:table/${self:custom.notesTableName}"
+                  - "arn:aws:dynamodb:${self:provider.region}:#{AWS::AccountId}:table/${self:custom.notesTableName}/*"
+                  - "arn:aws:dynamodb:${self:provider.region}:#{AWS::AccountId}:table/${self:custom.analysisTableName}"
+                  - "arn:aws:dynamodb:${self:provider.region}:#{AWS::AccountId}:table/${self:custom.analysisTableName}/*"
+              - Effect: "Allow"
+                Action:
+                  - dynamodb:Query
+                  - dynamodb:Scan
+                  - dynamodb:GetItem
+                Resource:
+                  - "arn:aws:dynamodb:${self:provider.region}:#{AWS::AccountId}:table/${self:custom.usersTableName}"
 
 # Print out the Id of the Identity Pool that is created
 Outputs:

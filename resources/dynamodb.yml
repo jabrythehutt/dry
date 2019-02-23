@@ -1,0 +1,31 @@
+Resources:
+  NotesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions: ${file(user.entity.table.json):AttributeDefinitions}
+      KeySchema: ${file(user.entity.table.json):KeySchema}
+      GlobalSecondaryIndexes: ${file(user.entity.table.json):GlobalSecondaryIndexes}
+      TableName: ${self:custom.notesTableName}
+
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.usersTableName}
+      AttributeDefinitions: ${file(entity.table.json):AttributeDefinitions}
+      KeySchema: ${file(entity.table.json):KeySchema}
+
+  AnalysisTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.analysisTableName}
+      AttributeDefinitions: ${file(user.entity.table.json):AttributeDefinitions}
+      KeySchema: ${file(user.entity.table.json):KeySchema}
+      GlobalSecondaryIndexes: ${file(user.entity.table.json):GlobalSecondaryIndexes}
+
+Outputs:
+  notesTableName:
+    Value: ${self:custom.notesTableName}
+  analysisTableName:
+    Value: ${self:custom.analysisTableName}
+  usersTableName:
+    Value: ${self:custom.usersTableName}
