@@ -11,7 +11,7 @@
   </mat-step>
   <mat-step label="Done">
     <ng-container *ngIf="selectedUser">
-      <button mat-button [routerLink]="['/result', {userId: selectedUser.id}]">Go</button>
+      <button mat-button [routerLink]="['/result', selectedUser.id]" (click)="goClicked()">Go</button>
     </ng-container>
   </mat-step>
 </mat-vertical-stepper>

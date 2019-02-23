@@ -36,6 +36,7 @@ import { AnalysisComponent } from './analysis/analysis.component';
     AnalysisComponent
   ],
   imports: [
+    MatTabsModule,
     FormsModule,
     MatButtonModule,
     MatInputModule,

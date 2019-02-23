@@ -19,4 +19,8 @@ export class UploadComponent implements OnInit {
    this.usersPromise = this.usersDao.list();
   }
 
+  goClicked() {
+    console.log(this.selectedUser);
+  }
+
 }

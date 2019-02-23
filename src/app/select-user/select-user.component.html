@@ -1,6 +1,6 @@
 <mat-form-field>
   <mat-select *ngIf="users" [(ngModel)]="selectedUser">
-    <mat-option *ngFor="let user of users" [value]="user.id">
+    <mat-option *ngFor="let user of users" [value]="user">
       {{user.name}}
     </mat-option>
   </mat-select>
