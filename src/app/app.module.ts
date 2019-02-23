@@ -26,6 +26,7 @@ import { ProcessingComponent } from './processing/processing.component';
 import { ProcessingNoteComponent } from './processing-note/processing-note.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AnalysisSectionComponent } from './analysis-section/analysis-section.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { environment } from '../environments/environment';
     UserResultComponent,
     AnalysisComponent,
     ProcessingComponent,
-    ProcessingNoteComponent
+    ProcessingNoteComponent,
+    AnalysisSectionComponent
   ],
   imports: [
     MatExpansionModule,
