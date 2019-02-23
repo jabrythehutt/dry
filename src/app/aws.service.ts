@@ -6,6 +6,8 @@ import {config} from 'aws-sdk/global';
 import {DocumentClient} from 'aws-sdk/lib/dynamodb/document_client';
 import * as DynamoDB from 'aws-sdk/clients/dynamodb';
 
+const credentials = new CognitoIdentityCredentials({IdentityPoolId: stack.identityPoolId});
+config.credentials = credentials;
 config.region = stack.region;
 
 @Injectable({
@@ -16,7 +18,7 @@ export class AwsService extends CognitoIdentityAwsServiceFactory {
   private db: DocumentClient;
 
   constructor() {
-    super(new CognitoIdentityCredentials({IdentityPoolId: stack.identityPoolId}));
+    super(credentials);
   }
 
   async dynamodb(): Promise<DocumentClient> {
