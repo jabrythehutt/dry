@@ -1,11 +1,18 @@
 <mat-vertical-stepper [linear]="true">
   <mat-step label="Select customer">
-    <app-select-user [users]="usersPromise | async"></app-select-user>
+    <ng-container *ngIf="usersPromise | async as users">
+      <app-select-user [users]="users" [(selectedUser)]="selectedUser"></app-select-user>
+    </ng-container>
   </mat-step>
   <mat-step label="Upload notes">
-    <app-upload-notes></app-upload-notes>
+    <ng-container *ngIf="selectedUser">
+      <app-upload-notes></app-upload-notes>
+    </ng-container>
   </mat-step>
   <mat-step label="Done">
+    <ng-container *ngIf="selectedUser">
+      <button mat-button [routerLink]="['/result', selectedUser.id]">Go</button>
+    </ng-container>
 
   </mat-step>
 </mat-vertical-stepper>

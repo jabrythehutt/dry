@@ -11,6 +11,8 @@ export class UploadComponent implements OnInit {
 
   usersPromise: Promise<User[]>;
 
+  selectedUser: User;
+
   constructor(private usersDao: UserDaoService) { }
 
   ngOnInit() {

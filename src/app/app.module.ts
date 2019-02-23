@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatAutocompleteModule,
+  MatAutocompleteModule, MatButtonModule,
   MatFormFieldModule, MatInputModule,
   MatSelectModule,
   MatStepperModule,
@@ -18,7 +18,7 @@ import { UploadComponent } from './upload/upload.component';
 import { SelectUserComponent } from './select-user/select-user.component';
 import { UploadNotesComponent } from './upload-notes/upload-notes.component';
 import { UploadRecordingComponent } from './upload-recording/upload-recording.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ResultComponent } from './result/result.component';
 import { UserResultComponent } from './user-result/user-result.component';
 
@@ -34,6 +34,8 @@ import { UserResultComponent } from './user-result/user-result.component';
     UserResultComponent
   ],
   imports: [
+    FormsModule,
+    MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
     MatFormFieldModule,
