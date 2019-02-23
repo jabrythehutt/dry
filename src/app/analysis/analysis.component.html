@@ -5,7 +5,9 @@
         <ng-container *ngIf="sectionEntries.entityType === entityType">
           <mat-expansion-panel>
             <mat-expansion-panel-header>
-              {{sectionEntries.text}}
+              <strong>
+                {{sectionEntries.text}}
+              </strong>
             </mat-expansion-panel-header>
             <app-analysis-section *ngFor="let section of sectionEntries.sections" [section]="section">
             </app-analysis-section>

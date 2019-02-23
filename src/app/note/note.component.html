@@ -1,0 +1,7 @@
+<ng-container *ngIf="notePromise | async as note">
+  <mat-card>
+    <p [innerHTML]="note.item.text | highlight:highlightText">
+    </p>
+  </mat-card>
+</ng-container>
+

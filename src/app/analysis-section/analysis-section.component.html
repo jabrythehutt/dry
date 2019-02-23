@@ -1,5 +1,12 @@
 <ng-container *ngIf="notePromise | async as noteOptional">
   <ng-container *ngIf="noteOptional.exists">
-    <p [innerHTML]="noteOptional.item.text | noteExtract:section.entity | highlight:section.entity.Text"></p>
+    <div fxLayout="row" class="extract-container">
+      <p [innerHTML]="noteOptional.item.text | noteExtract:section.entity | highlight:section.entity.Text" fxFlex="grow"></p>
+      <div fxLayoutAlign="right">
+        <button mat-icon-button [routerLink]="['/note', noteOptional.item.id]" [queryParams]="{ h: section.entity.Text}">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </div>
   </ng-container>
 </ng-container>

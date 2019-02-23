@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatAutocompleteModule, MatButtonModule, MatExpansionModule,
-  MatFormFieldModule, MatInputModule, MatProgressSpinnerModule,
+  MatAutocompleteModule, MatButtonModule, MatCardModule, MatExpansionModule,
+  MatFormFieldModule, MatIconModule, MatInputModule, MatProgressSpinnerModule,
   MatSelectModule,
   MatStepperModule,
   MatTabsModule,
@@ -29,6 +29,8 @@ import { environment } from '../environments/environment';
 import { AnalysisSectionComponent } from './analysis-section/analysis-section.component';
 import { NoteExtractPipe } from './analysis-section/note-extract.pipe';
 import { HighlightPipe } from './highlight.pipe';
+import { NoteComponent } from './note/note.component';
+import { NoteContainerComponent } from './note-container/note-container.component';
 
 @NgModule({
   declarations: [
@@ -45,9 +47,13 @@ import { HighlightPipe } from './highlight.pipe';
     ProcessingNoteComponent,
     AnalysisSectionComponent,
     NoteExtractPipe,
-    HighlightPipe
+    HighlightPipe,
+    NoteComponent,
+    NoteContainerComponent
   ],
   imports: [
+    MatCardModule,
+    MatIconModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
     MatTabsModule,

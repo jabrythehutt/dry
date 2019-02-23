@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {UploadComponent} from './upload/upload.component';
 import {ResultComponent} from './result/result.component';
 import {ProcessingComponent} from './processing/processing.component';
+import {NoteContainerComponent} from './note-container/note-container.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'processing/:noteId',
     component: ProcessingComponent
+  },
+  {
+    path: 'note/:noteId',
+    component: NoteContainerComponent
   }
 ];
 

@@ -1,0 +1,8 @@
+<ng-container *ngIf="route.params | async as params">
+  <ng-container *ngIf="route.queryParams | async as queryParams">
+    <ng-container *ngIf="params.noteId as noteId">
+      <app-note [noteId]="noteId" [highlightText]="queryParams.h">
+      </app-note>
+    </ng-container>
+  </ng-container>
+</ng-container>
