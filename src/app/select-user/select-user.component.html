@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-select *ngIf="users">
+    <mat-option *ngFor="let user of users" [value]="user.id">
+      {{user.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+

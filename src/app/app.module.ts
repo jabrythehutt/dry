@@ -4,15 +4,31 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatAutocompleteModule, MatSelectModule, MatStepperModule, MatTabsModule, MatToolbarModule} from '@angular/material';
+import { UserComponent } from './user/user.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { UploadComponent } from './upload/upload.component';
+import { SelectUserComponent } from './select-user/select-user.component';
+import { UploadNotesComponent } from './upload-notes/upload-notes.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserComponent,
+    UploadComponent,
+    SelectUserComponent,
+    UploadNotesComponent
   ],
   imports: [
+    MatAutocompleteModule,
+    MatSelectModule,
+    FlexLayoutModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    MatStepperModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
