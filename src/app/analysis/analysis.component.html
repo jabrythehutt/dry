@@ -1,8 +1,11 @@
 <mat-tab-group>
   <mat-tab *ngFor="let entityType of entityTypes" [label]="entityType | titlecase">
+    <mat-form-field class="search">
+      <input matInput placeholder="Search" [(ngModel)]="searchTerm">
+    </mat-form-field>
     <mat-accordion>
       <ng-container *ngFor="let sectionEntries of sections">
-        <ng-container *ngIf="sectionEntries.entityType === entityType">
+        <ng-container *ngIf="sectionEntries.entityType === entityType && (!searchTerm || sectionEntries.text.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))">
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <strong>

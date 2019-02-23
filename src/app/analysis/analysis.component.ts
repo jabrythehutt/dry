@@ -18,6 +18,8 @@ export class AnalysisComponent implements OnInit {
 
   sections: AnalysisSections[];
 
+  searchTerm: string;
+
   constructor() { }
 
   ngOnInit() {
