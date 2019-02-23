@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../user/user';
+import {UserDaoService} from '../user/user-dao.service';
 
 @Component({
   selector: 'app-upload',
@@ -8,11 +9,12 @@ import {User} from '../user/user';
 })
 export class UploadComponent implements OnInit {
 
-  users: User[] = ['James', 'Richard', 'Jane', 'Oliver'].map(name => ({name, id: name}));
+  usersPromise: Promise<User[]>;
 
-  constructor() { }
+  constructor(private usersDao: UserDaoService) { }
 
   ngOnInit() {
+   this.usersPromise = this.usersDao.list();
   }
 
 }

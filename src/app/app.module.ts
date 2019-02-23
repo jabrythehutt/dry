@@ -19,6 +19,8 @@ import { SelectUserComponent } from './select-user/select-user.component';
 import { UploadNotesComponent } from './upload-notes/upload-notes.component';
 import { UploadRecordingComponent } from './upload-recording/upload-recording.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ResultComponent } from './result/result.component';
+import { UserResultComponent } from './user-result/user-result.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     UploadComponent,
     SelectUserComponent,
     UploadNotesComponent,
-    UploadRecordingComponent
+    UploadRecordingComponent,
+    ResultComponent,
+    UserResultComponent
   ],
   imports: [
     MatInputModule,

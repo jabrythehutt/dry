@@ -1,6 +1,6 @@
 <mat-vertical-stepper [linear]="true">
   <mat-step label="Select customer">
-    <app-select-user [users]="users"></app-select-user>
+    <app-select-user [users]="usersPromise | async"></app-select-user>
   </mat-step>
   <mat-step label="Upload notes">
     <app-upload-notes></app-upload-notes>

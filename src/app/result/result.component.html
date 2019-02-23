@@ -1,0 +1,6 @@
+<ng-container *ngIf="route.params | async as params">
+  <ng-container *ngIf="params?.userId as userId">
+    <app-user-result [userId]="userId"></app-user-result>
+  </ng-container>
+</ng-container>
+
