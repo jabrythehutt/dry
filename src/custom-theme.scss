@@ -34,8 +34,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: lightyellow;
 }
 
-router-outlet ~ * {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
+
