@@ -23,6 +23,7 @@ import { ResultComponent } from './result/result.component';
 import { UserResultComponent } from './user-result/user-result.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { ProcessingComponent } from './processing/processing.component';
+import { ProcessingNoteComponent } from './processing-note/processing-note.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ProcessingComponent } from './processing/processing.component';
     ResultComponent,
     UserResultComponent,
     AnalysisComponent,
-    ProcessingComponent
+    ProcessingComponent,
+    ProcessingNoteComponent
   ],
   imports: [
     MatProgressSpinnerModule,

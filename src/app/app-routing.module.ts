@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {UploadComponent} from './upload/upload.component';
 import {ResultComponent} from './result/result.component';
+import {ProcessingComponent} from './processing/processing.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'result/:userId',
     component: ResultComponent
+  },
+  {
+    path: 'processing/:noteId',
+    component: ProcessingComponent
   }
 ];
 

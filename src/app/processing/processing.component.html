@@ -1,2 +1,5 @@
-<mat-progress-spinner mode="indeterminate">
-</mat-progress-spinner>
+<ng-container *ngIf="route.params | async as params">
+  <ng-container *ngIf="params.noteId as noteId">
+    <app-processing-note [noteId]="noteId" class="processing"></app-processing-note>
+  </ng-container>
+</ng-container>

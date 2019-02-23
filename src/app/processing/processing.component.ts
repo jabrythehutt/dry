@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {AwsService} from '../aws.service';
+import {NoteDaoService} from '../note/note-dao.service';
 
 @Component({
   selector: 'app-processing',
@@ -9,7 +9,7 @@ import {AwsService} from '../aws.service';
 })
 export class ProcessingComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private awsService: AwsService) {
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
