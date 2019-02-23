@@ -11,6 +11,8 @@ provider:
   profile: daniel
 
 custom:
+  aliasDNSName: "drydepaul.com"
+  aliasHostedZoneId: "Z2FDTNDATAQYW2"
   output:
     # handler: output.handler
     file: .serverless/stack.json

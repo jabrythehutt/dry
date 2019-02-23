@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../user/user';
+import {UserDaoService} from '../user/user-dao.service';
+import {Optional} from '../data/optional';
 
 @Component({
   selector: 'app-user-result',
@@ -11,9 +13,12 @@ export class UserResultComponent implements OnInit {
   @Input()
   userId: string;
 
-  constructor() { }
+  userPromise: Promise<Optional<User>>;
+
+  constructor(private dao: UserDaoService) { }
 
   ngOnInit() {
+    this.userPromise = this.dao.find({id: this.userId});
   }
 
 }

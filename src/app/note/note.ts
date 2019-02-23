@@ -1,6 +1,6 @@
-import {Entity} from '../data/entity';
+import {UserEntity} from '../data/user.entity';
 
-export interface Note extends Entity {
-  userId: string;
+export interface Note extends UserEntity {
   text: string;
+  textHash: string;
 }

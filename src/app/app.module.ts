@@ -21,6 +21,7 @@ import { UploadRecordingComponent } from './upload-recording/upload-recording.co
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ResultComponent } from './result/result.component';
 import { UserResultComponent } from './user-result/user-result.component';
+import { AnalysisComponent } from './analysis/analysis.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UserResultComponent } from './user-result/user-result.component';
     UploadNotesComponent,
     UploadRecordingComponent,
     ResultComponent,
-    UserResultComponent
+    UserResultComponent,
+    AnalysisComponent
   ],
   imports: [
     FormsModule,
