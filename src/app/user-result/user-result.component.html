@@ -1,5 +1,5 @@
 <ng-container *ngIf="userPromise | async as user">
-  <ng-container *ngIf="analysisResultsPromise as results">
+  <ng-container *ngIf="analysisResultsPromise | async as results">
     <app-analysis [userAnalysisResults]="results"></app-analysis>
   </ng-container>
 </ng-container>

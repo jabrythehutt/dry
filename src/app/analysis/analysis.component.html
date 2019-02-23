@@ -1,7 +1,18 @@
 <mat-tab-group>
   <mat-tab *ngFor="let entityType of entityTypes" [label]="entityType | titlecase">
+    <mat-accordion>
+      <ng-container *ngFor="let analysis of userAnalysisResults">
+        <ng-container *ngFor="let entity of analysis.entities">
+          <ng-container *ngIf="entity.Type === entityType">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                {{entity.Text}}
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </mat-accordion>
+
   </mat-tab>
 </mat-tab-group>
-<pre>
-  {{userAnalysisResults | json}}
-</pre>

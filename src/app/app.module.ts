@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatAutocompleteModule, MatButtonModule,
+  MatAutocompleteModule, MatButtonModule, MatExpansionModule,
   MatFormFieldModule, MatInputModule, MatProgressSpinnerModule,
   MatSelectModule,
   MatStepperModule,
@@ -24,6 +24,8 @@ import { UserResultComponent } from './user-result/user-result.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { ProcessingComponent } from './processing/processing.component';
 import { ProcessingNoteComponent } from './processing-note/processing-note.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { ProcessingNoteComponent } from './processing-note/processing-note.compo
     ProcessingNoteComponent
   ],
   imports: [
+    MatExpansionModule,
     MatProgressSpinnerModule,
     MatTabsModule,
     FormsModule,
@@ -55,7 +58,8 @@ import { ProcessingNoteComponent } from './processing-note/processing-note.compo
     MatStepperModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

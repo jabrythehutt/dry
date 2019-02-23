@@ -9,7 +9,7 @@ import {EntityType} from 'aws-sdk/clients/comprehend';
 })
 export class AnalysisComponent implements OnInit {
 
-  entityTypes: EntityType[] = ['PERSON', 'LOCATION', 'EVENT'];
+  entityTypes: EntityType[] = ['PERSON', 'LOCATION', 'EVENT', 'DATE'];
 
   @Input()
   userAnalysisResults: Analysis[];
