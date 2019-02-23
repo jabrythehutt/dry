@@ -4,12 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatAutocompleteModule, MatSelectModule, MatStepperModule, MatTabsModule, MatToolbarModule} from '@angular/material';
+import {
+  MatAutocompleteModule,
+  MatFormFieldModule, MatInputModule,
+  MatSelectModule,
+  MatStepperModule,
+  MatTabsModule,
+  MatToolbarModule
+} from '@angular/material';
 import { UserComponent } from './user/user.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { UploadComponent } from './upload/upload.component';
 import { SelectUserComponent } from './select-user/select-user.component';
 import { UploadNotesComponent } from './upload-notes/upload-notes.component';
+import { UploadRecordingComponent } from './upload-recording/upload-recording.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,9 +26,13 @@ import { UploadNotesComponent } from './upload-notes/upload-notes.component';
     UserComponent,
     UploadComponent,
     SelectUserComponent,
-    UploadNotesComponent
+    UploadNotesComponent,
+    UploadRecordingComponent
   ],
   imports: [
+    MatInputModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
     MatAutocompleteModule,
     MatSelectModule,
     FlexLayoutModule,

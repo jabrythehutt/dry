@@ -8,7 +8,7 @@ import {User} from '../user';
 })
 export class UploadComponent implements OnInit {
 
-  users: User[] = ['James', "Richard", "Jane", "Oliver"].map(name => ({name, id: name}));
+  users: User[] = ['James', 'Richard', 'Jane', 'Oliver'].map(name => ({name, id: name}));
 
   constructor() { }
 
