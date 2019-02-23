@@ -2,6 +2,7 @@ service: dry
 plugins:
   - serverless-s3-sync
   - serverless-pseudo-parameters
+  - serverless-stack-output
 
 provider:
   region: eu-west-1
@@ -10,6 +11,8 @@ provider:
   profile: daniel
 
 custom:
+  output:
+    file: .serverless/stack.json
   stage: "${opt:stage, self:provider.stage}"
   prefix: "${self:service}-${self:custom.stage}"
   siteName: "${self:custom.prefix}-site"
@@ -25,3 +28,7 @@ custom:
 resources:
   - ${file(resources/cognito-identity-pool.yml)}
   - ${file(resources/site.yml)}
+
+  Outputs:
+    region:
+      Value: "${self:provider.region}"

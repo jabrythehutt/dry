@@ -53,6 +53,7 @@
     "serverless": "1.38.0",
     "serverless-pseudo-parameters": "2.4.0",
     "serverless-s3-sync": "1.7.2",
+    "serverless-stack-output": "0.2.3",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
