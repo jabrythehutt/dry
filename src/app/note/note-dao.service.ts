@@ -27,7 +27,10 @@ export class NoteDaoService extends UserEntityDao<Entity, Note> {
         ExpressionAttributeNames: {
           [idExpressionAttributes.keyName]: idExpressionAttributes.key
         },
-        Item: note,
+        Item: {
+          ...note,
+          lastModified: (new Date()).toISOString()
+        },
         ConditionExpression: `attribute_not_exists(${idExpressionAttributes.keyName})`
       }).promise();
       this.modified.emit([note]);

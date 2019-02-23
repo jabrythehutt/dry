@@ -80,11 +80,15 @@ export class Dao<K, T extends K> {
     const batches = this.chunkArray(objects, this.batchSize);
     const db = await this.dbPromise;
     for (const batch of batches) {
+      const timestamp = (new Date()).toISOString();
       await db.batchWrite({
         RequestItems: {
           [this.tableName]: batch.map(item => ({
             PutRequest: {
-              Item: item
+              Item: {
+                ...item,
+                lastModified: timestamp
+              }
             }
           }))
         }
