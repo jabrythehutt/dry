@@ -6,7 +6,7 @@
   </mat-step>
   <mat-step label="Upload notes">
     <ng-container *ngIf="selectedUser">
-      <app-upload-notes [(text)]="text"></app-upload-notes>
+      <app-upload-notes [(text)]="text" class="notes-upload"></app-upload-notes>
     </ng-container>
   </mat-step>
   <mat-step label="Done">
