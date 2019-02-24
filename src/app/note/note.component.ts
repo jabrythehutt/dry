@@ -36,7 +36,7 @@ export class NoteComponent implements OnInit {
     const note = await this.notePromise;
     const userId = note.item.userId;
     const user = await this.userDao.find({id: userId});
-    this.titleService.title = `${user.item.name} notes`;
+    this.titleService.title =  `Notes on ${user.item.name}`;
   }
 
 }
