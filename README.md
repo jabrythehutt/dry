@@ -1,6 +1,10 @@
-# Dry
+# DRY
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+This project was developed during the DV Imagines: Hacking Homelessness to reduce the administrative burden on Depaul progression coaches 
+
+## Getting started
+
+Run `npm run create-backend` to set up an AWS-based backend to support the web-app
 
 ## Development server
 
@@ -25,3 +29,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Production deployment
+
+Run `npm run deploy`
