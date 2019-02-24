@@ -14,9 +14,21 @@ import * as existingUserNotes from '../../../scripts/notes-by-user.json';
 export class UploadComponent implements OnInit {
 
   usersPromise: Promise<User[]>;
-
-  selectedUser: User;
   text = existingUserNotes.data[0].notes[0];
+
+  private sUser: User;
+
+  get selectedUser(): User {
+    return this.sUser;
+  }
+
+  set selectedUser(u: User) {
+    this.sUser = u;
+    if (u) {
+      this.text = existingUserNotes.data[0].name === u.name ? existingUserNotes.data[0].notes[0] : '';
+    }
+
+  }
 
   constructor(private usersDao: UserDaoService,
               private notesDao: NoteDaoService,
