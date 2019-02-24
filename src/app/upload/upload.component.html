@@ -9,7 +9,7 @@
       <app-upload-notes [(text)]="text" class="notes-upload"></app-upload-notes>
     </ng-container>
   </mat-step>
-  <mat-step label="Done">
+  <mat-step label="Scan notes">
     <ng-container *ngIf="selectedUser && text">
       <button mat-button (click)="goClicked()">Go</button>
     </ng-container>

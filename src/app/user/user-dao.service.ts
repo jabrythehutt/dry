@@ -3,25 +3,32 @@ import {Dao} from '../data/dao';
 import {Entity} from '../data/entity';
 import {User} from './user';
 import {AwsService} from '../aws.service';
-import {Optional} from '../data/optional';
 import * as stack from '../../../.serverless/stack.json';
+import {DocumentClient} from 'aws-sdk/lib/dynamodb/document_client';
+import ScanInput = DocumentClient.ScanInput;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserDaoService extends Dao<Entity, User>  {
 
-  private users = ['James', 'Richard', 'Jane', 'Oliver'].map(name => ({name, id: name}));
-
   constructor(awsService: AwsService) {
     super(awsService.dynamodb(), stack.usersTableName);
   }
 
   async list(): Promise<User[]> {
-    return this.users;
-  }
-
-  async find(key: Entity): Promise<Optional<User>> {
-    return Optional.of(this.users.find(u => u.id === key.id));
+    const db = await this.dbPromise;
+    const scanRequest: ScanInput = {
+      TableName: this.tableName
+    };
+    let data = await db.scan(scanRequest).promise();
+    const results: User[] = [];
+    results.push(...data.Items as User[]);
+    while (data.LastEvaluatedKey) {
+      scanRequest.ExclusiveStartKey = data.LastEvaluatedKey;
+      data = await db.scan(scanRequest).promise();
+      results.push(...data.Items as User[]);
+    }
+    return results;
   }
 }
