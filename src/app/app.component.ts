@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {fadeAnimation} from '../animations';
 import {TitleService} from './title.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import {TitleService} from './title.service';
 })
 export class AppComponent {
 
-  constructor(private titleService: TitleService) {
+  constructor(public titleService: TitleService,
+              private route: ActivatedRoute) {
   }
 
   get title(): string {

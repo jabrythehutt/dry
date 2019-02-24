@@ -1,10 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar [color]="titleService.colour" >
-  <div fxLayout="row">
-    <span>{{title}}</span>
-    <app-user>
-    </app-user>
-  </div>
+  <mat-toolbar-row>
+    <div fxFlex="grow">
+      {{title}}
+    </div>
+    <button mat-icon-button fxFlexAlign="right" [routerLink]="['/upload']" title="Add note"><mat-icon>add_box</mat-icon></button>
+  </mat-toolbar-row>
 </mat-toolbar>
 <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
   <router-outlet #o="outlet"></router-outlet>

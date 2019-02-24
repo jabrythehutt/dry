@@ -33,7 +33,6 @@ export class UserResultComponent implements OnInit {
   async applyTitle() {
     const user = await this.userPromise;
     this.titleService.title = `Notes on ${user.item.name}`;
-
   }
 
 }
