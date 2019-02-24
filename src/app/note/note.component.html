@@ -1,17 +1,17 @@
 <ng-container *ngIf="notePromise | async as note">
   <mat-card>
+    <mat-card-actions>
+      <div fxLayout="row" fxLayoutAlign="space-between" class="note-header">
+        <button mat-icon-button title="Back to all notes" [routerLink]="['/result', note.item.userId]">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <p class="date-label" fxFlexAlign="end">
+          {{note.item.lastModified | date:'shortDate'}}
+        </p>
+      </div>
+    </mat-card-actions>
     <p [innerHTML]="note.item.text | highlight:highlightText">
     </p>
-    <div fxLayout="row" fxLayoutAlign="end">
-      <p class="date-label">
-        {{note.item.lastModified | date:'shortDate'}}
-      </p>
-    </div>
-    <mat-card-actions>
-      <button mat-icon-button title="Back to all notes" [routerLink]="['/result', note.item.userId]">
-        <mat-icon>chevron_left</mat-icon>
-      </button>
-    </mat-card-actions>
   </mat-card>
 </ng-container>
 

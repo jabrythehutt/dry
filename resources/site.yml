@@ -38,13 +38,13 @@ Resources:
           - DomainName: ${self:custom.siteName}.s3.amazonaws.com
             ## An identifier for the origin which must be unique within the distribution
             Id: "${self:custom.prefix}-site"
-            CustomOriginConfig:
-              HTTPPort: 80
-              HTTPSPort: 443
-              OriginProtocolPolicy: https-only
+#            CustomOriginConfig:
+#              HTTPPort: 80
+#              HTTPSPort: 443
+#              OriginProtocolPolicy: https-only
               ## In case you want to restrict the bucket access use S3OriginConfig and remove CustomOriginConfig
-              # S3OriginConfig:
-              #   OriginAccessIdentity: origin-access-identity/cloudfront/E127EXAMPLE51Z
+            S3OriginConfig:
+              OriginAccessIdentity: ""
         Enabled: 'true'
           ## Uncomment the following section in case you are using a custom domain
         Aliases:
