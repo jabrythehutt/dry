@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {TitleService} from '../title.service';
 
 @Component({
   selector: 'app-upload-notes',
@@ -22,9 +23,10 @@ export class UploadNotesComponent implements OnInit {
   @Output()
   textChange: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  constructor(private titleService: TitleService) { }
 
   ngOnInit() {
+    this.titleService.title = 'Upload notes';
   }
 
 }

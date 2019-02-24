@@ -31,6 +31,7 @@ import { NoteExtractPipe } from './analysis-section/note-extract.pipe';
 import { HighlightPipe } from './highlight.pipe';
 import { NoteComponent } from './note/note.component';
 import { NoteContainerComponent } from './note-container/note-container.component';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import { NoteContainerComponent } from './note-container/note-container.componen
     MatToolbarModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

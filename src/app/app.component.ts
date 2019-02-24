@@ -1,5 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {fadeAnimation} from '../animations';
+import {TitleService} from './title.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,11 @@ import {fadeAnimation} from '../animations';
   animations: [fadeAnimation]
 })
 export class AppComponent {
-  title = 'DRY';
+
+  constructor(private titleService: TitleService) {
+  }
+
+  get title(): string {
+    return this.titleService.title;
+  }
 }

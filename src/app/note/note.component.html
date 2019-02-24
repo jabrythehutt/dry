@@ -2,6 +2,12 @@
   <mat-card>
     <p [innerHTML]="note.item.text | highlight:highlightText">
     </p>
+    <div fxLayout="row" fxLayoutAlign="end">
+      <p class="date-label">
+        {{note.item.lastModified | date:'shortDate'}}
+      </p>
+    </div>
+
   </mat-card>
 </ng-container>
 

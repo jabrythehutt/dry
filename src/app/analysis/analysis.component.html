@@ -5,7 +5,7 @@
     </mat-form-field>
     <mat-accordion>
       <ng-container *ngFor="let sectionEntries of sections">
-        <ng-container *ngIf="sectionEntries.entityType === entityType && (!searchTerm || sectionEntries.text.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))">
+        <ng-container *ngIf="sectionEntries.entityType === entityType && (!searchTerm || sectionEntries.text.toLowerCase().includes(searchTerm.toLowerCase()))">
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <strong>

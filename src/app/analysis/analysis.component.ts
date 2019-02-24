@@ -3,6 +3,7 @@ import {Analysis} from './analysis';
 import {EntityType} from 'aws-sdk/clients/comprehend';
 import {AnalysisSections} from './analysis.sections';
 import {AnalysisSection} from '../analysis-section/analysis.section';
+import {TitleService} from '../title.service';
 
 @Component({
   selector: 'app-analysis',
@@ -11,7 +12,7 @@ import {AnalysisSection} from '../analysis-section/analysis.section';
 })
 export class AnalysisComponent implements OnInit {
 
-  entityTypes: EntityType[] = ['PERSON', 'LOCATION', 'EVENT', 'DATE'];
+  entityTypes: EntityType[] = ['PERSON', 'LOCATION', 'DATE'];
 
   @Input()
   userAnalysisResults: Analysis[];
@@ -20,7 +21,7 @@ export class AnalysisComponent implements OnInit {
 
   searchTerm: string;
 
-  constructor() { }
+  constructor(private titleService: TitleService) { }
 
   ngOnInit() {
     const sections: AnalysisSections[] = [];
@@ -40,7 +41,10 @@ export class AnalysisComponent implements OnInit {
       }
     }
 
-    this.sections = sections;
+    this.sections = sections.sort((s1, s2) => s1.text.localeCompare(s2.text));
+  }
+
+  async setTitle() {
   }
 
 }

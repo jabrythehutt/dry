@@ -4,12 +4,12 @@
       <app-select-user [users]="users" [(selectedUser)]="selectedUser"></app-select-user>
     </ng-container>
   </mat-step>
-  <mat-step label="Upload notes">
+  <mat-step label="Enter notes">
     <ng-container *ngIf="selectedUser">
       <app-upload-notes [(text)]="text" class="notes-upload"></app-upload-notes>
     </ng-container>
   </mat-step>
-  <mat-step label="Scan notes">
+  <mat-step label="Submit">
     <ng-container *ngIf="selectedUser && text">
       <button mat-button (click)="goClicked()">Go</button>
     </ng-container>
