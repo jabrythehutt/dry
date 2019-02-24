@@ -7,7 +7,11 @@
         {{note.item.lastModified | date:'shortDate'}}
       </p>
     </div>
-
+    <mat-card-actions>
+      <button mat-icon-button title="Back to all notes" [routerLink]="['/result', note.item.userId]">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    </mat-card-actions>
   </mat-card>
 </ng-container>
 
