@@ -13,7 +13,7 @@ export class ProcessingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.title = 'Processing your note in the cloud';
+    this.titleService.title = 'Processing your note';
   }
 
 }

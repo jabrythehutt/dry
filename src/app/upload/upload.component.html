@@ -1,5 +1,5 @@
 <mat-vertical-stepper [linear]="true">
-  <mat-step label="Select customer">
+  <mat-step label="Select young person">
     <ng-container *ngIf="usersPromise | async as users">
       <app-select-user [users]="users" [(selectedUser)]="selectedUser"></app-select-user>
     </ng-container>
