@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AwsService} from '../aws.service';
-import * as Comprehend from 'aws-sdk/clients/comprehend';
+import Comprehend from 'aws-sdk/clients/comprehend';
 import {Entity} from 'aws-sdk/clients/comprehend';
 import {ClassType} from '@djabry/aws-factory/src/class.type';
 

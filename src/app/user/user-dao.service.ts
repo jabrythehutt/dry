@@ -15,20 +15,4 @@ export class UserDaoService extends Dao<Entity, User>  {
   constructor(awsService: AwsService) {
     super(awsService.dynamodb(), stack.usersTableName);
   }
-
-  async list(): Promise<User[]> {
-    const db = await this.dbPromise;
-    const scanRequest: ScanInput = {
-      TableName: this.tableName
-    };
-    let data = await db.scan(scanRequest).promise();
-    const results: User[] = [];
-    results.push(...data.Items as User[]);
-    while (data.LastEvaluatedKey) {
-      scanRequest.ExclusiveStartKey = data.LastEvaluatedKey;
-      data = await db.scan(scanRequest).promise();
-      results.push(...data.Items as User[]);
-    }
-    return results;
-  }
 }

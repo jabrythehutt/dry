@@ -3,6 +3,7 @@ import {QueryInput} from 'aws-sdk/clients/dynamodb';
 import {Optional} from './optional';
 import {DocumentClient} from 'aws-sdk/lib/dynamodb/document_client';
 import {EventEmitter} from '@angular/core';
+import ScanInput = DocumentClient.ScanInput;
 
 export class Dao<K, T extends K> {
 
@@ -96,5 +97,21 @@ export class Dao<K, T extends K> {
       this.modified.emit(batch);
     }
 
+  }
+
+  async list(): Promise<T[]> {
+    const db = await this.dbPromise;
+    const scanRequest: ScanInput = {
+      TableName: this.tableName
+    };
+    let data = await db.scan(scanRequest).promise();
+    const results: T[] = [];
+    results.push(...data.Items as T[]);
+    while (data.LastEvaluatedKey) {
+      scanRequest.ExclusiveStartKey = data.LastEvaluatedKey;
+      data = await db.scan(scanRequest).promise();
+      results.push(...data.Items as T[]);
+    }
+    return results;
   }
 }

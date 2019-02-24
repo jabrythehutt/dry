@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "sls": "sls",
+    "seed-db": "ts-node scripts/seed-db.ts",
     "create-backend": "ts-node scripts/create-backend.ts && npm run sls -- deploy --stage=prod",
     "deploy": "npm run build:prod && npm run sls -- deploy --stage=prod && npm run sls -- s3sync --stage=prod",
     "build:prod": "npm run build -- --prod"

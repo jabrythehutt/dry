@@ -129,4 +129,4 @@ Outputs:
   region:
     Value: ${self:provider.region}
   profile:
-    Value: ${self:provider.region}
+    Value: ${self:provider.profile}
