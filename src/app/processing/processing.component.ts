@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {NoteDaoService} from '../note/note-dao.service';
+import {TitleService} from '../title.service';
 
 @Component({
   selector: 'app-processing',
@@ -9,10 +9,11 @@ import {NoteDaoService} from '../note/note-dao.service';
 })
 export class ProcessingComponent implements OnInit {
 
-  constructor(public route: ActivatedRoute) {
+  constructor(public route: ActivatedRoute, private titleService: TitleService) {
   }
 
   ngOnInit() {
+    this.titleService.title = 'Processing your note in the cloud';
   }
 
 }

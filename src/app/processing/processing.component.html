@@ -1,7 +1,7 @@
 <ng-container *ngIf="route.params | async as params">
   <ng-container *ngIf="params.noteId as noteId">
-    <div class="processing" fxLayout="column">
-      <app-processing-note [noteId]="noteId" fxFlex="grow"></app-processing-note>
+    <div class="processing">
+      <app-processing-note [noteId]="noteId"></app-processing-note>
     </div>
   </ng-container>
 </ng-container>

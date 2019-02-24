@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {AnalysisDaoService} from '../analysis/analysis-dao.service';
 import {AnalysisService} from '../analysis/analysis.service';
 import {NoteDaoService} from '../note/note-dao.service';
@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-processing-note',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './processing-note.component.html',
   styleUrls: ['./processing-note.component.scss']
 })
