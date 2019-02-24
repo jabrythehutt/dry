@@ -15,4 +15,9 @@ export class UserDaoService extends Dao<Entity, User>  {
   constructor(awsService: AwsService) {
     super(awsService.dynamodb(), stack.usersTableName);
   }
+
+  async list(): Promise<User[]> {
+    const users = await super.list();
+    return users.sort((u1, u2) => u1.name.localeCompare(u2.name));
+  }
 }

@@ -8,10 +8,12 @@ import * as DynamoDB from 'aws-sdk/clients/dynamodb';
 import {Analysis} from '../src/app/analysis/analysis';
 import {HashService} from '../src/app/data/hash.service';
 import Comprehend from 'aws-sdk/clients/comprehend';
+import * as usersNamesAndNotes from './notes-by-user.json';
 const creds = new SharedIniFileCredentials({profile: stack.profile});
 config.credentials = creds;
 config.region = stack.region;
 const hashService = new HashService();
+
 
 
 async function wipe(dao: Dao<Entity, Entity>) {
@@ -66,17 +68,8 @@ function toNote(user: User, text: string): Note {
 }
 
 function createUsersAndNotes(): Array<{user: User, notes: Note[]}> {
-  const usersNamesAndNotes: Array<{name: string, notes: string[]}> = [
-    {
-      name: 'Andrew',
-      notes: [
-        'Andrew is 17 years old and was referred to us on March 29th 2018, after he was approached while sleeping rough in Manchester.\n' +
-        ' He claims to have been sexually abused by his step-father between from the age of 14 and decided to leave just after turning 16.'
-      ]
-    }
-  ];
 
-  return usersNamesAndNotes.map(entry => {
+  return usersNamesAndNotes.data.map(entry => {
     return {
       user: {
         name: entry.name,
