@@ -2,3 +2,12 @@ router-outlet ~ * {
   position: absolute;
   width: 100%;
 }
+
+.logo img {
+  width: 35px;
+  height: 35px;
+}
+
+.logo {
+  margin-right: 20px;
+}

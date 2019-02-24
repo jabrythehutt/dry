@@ -12,6 +12,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AppComponent {
 
+  logoLink = location.origin;
+
   constructor(public titleService: TitleService,
               private route: ActivatedRoute) {
   }
