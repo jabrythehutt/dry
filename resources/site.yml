@@ -84,3 +84,7 @@ Resources:
           #   IncludeCookies: 'false'
           #   Bucket: mylogs.s3.amazonaws.com
           #   Prefix: myprefix
+Outputs:
+  cloudfrontId:
+    Value:
+      Ref: SiteCloudFrontDistribution

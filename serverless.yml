@@ -2,6 +2,7 @@ service: dry
 plugins:
   - serverless-s3-sync
   - serverless-pseudo-parameters
+  - serverless-cloudfront-invalidate
   - "@anttiviljami/serverless-stack-output"
 
 provider:
@@ -24,8 +25,8 @@ custom:
     - bucketName: ${self:custom.siteName}
       localDir: dist/${self:service}
   cloudfrontInvalidate:
-    distributionId: ['Fn::GetAtt': [ SiteCloudFrontDistribution, DomainName ]]
-    # distributionIdKey: 'CDNDistributionId' #conditional, distributionId or distributionIdKey is required.
+    # distributionId: 'Fn::GetAtt': [ SiteCloudFrontDistribution, DomainName ]
+    distributionIdKey: 'cloudfrontId' #conditional, distributionId or distributionIdKey is required.
     items: # one or more paths required
       - '/index.html'
 
