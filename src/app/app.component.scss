@@ -3,11 +3,11 @@ router-outlet ~ * {
   width: 100%;
 }
 
-.logo img {
-  width: 35px;
-  height: 35px;
+
+.logo, .logo img {
+  height: 40px;
 }
 
-.logo {
+.logo img {
   margin-right: 20px;
 }

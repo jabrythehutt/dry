@@ -128,3 +128,5 @@ Outputs:
       Ref: CognitoIdentityPool
   region:
     Value: ${self:provider.region}
+  profile:
+    Value: ${self:provider.region}

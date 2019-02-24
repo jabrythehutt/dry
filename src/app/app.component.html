@@ -1,9 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar [color]="titleService.colour" >
   <mat-toolbar-row>
-    <a class="logo" [href]="logoLink">
-      <img src="../assets/icons/logo.png">
-    </a>
+    <div class="logo">
+      <a  [href]="logoLink">
+        <img src="../assets/icons/logo.png">
+      </a>
+    </div>
+
     <div fxFlex="grow">
       {{title}}
     </div>
