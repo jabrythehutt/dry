@@ -1,35 +1,19 @@
 # DRY
 
-This project was developed during the DV Imagines: Hacking Homelessness to reduce the administrative burden on Depaul progression coaches 
+This project was developed during the DV Imagines: Hacking Homelessness hackathon to reduce the administrative burden on Depaul progression coaches.
 
-## Getting started
+Demo: https://drydepaulcom
 
-Run `npm run create-backend` to set up an AWS-based backend to support the web-app
+The web application scans notes entered by progression coaches and produces summaries of the main people, dates and places related to a young person using AWS Comprehend entity detection. 
 
-## Development server
+## Running on your machine and AWS cloud
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Set up your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
 
-## Code scaffolding
+2. Update the `profile` field in the [serverless.yml](serverless.yml) file to match your AWS profile
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. Configure the `AcmCertificateArn` field in the [serverless site resource file](resources/site.yml) with your certificate ARN or remove it until you have one ready
 
-## Build
+4. Run `npm run create-backend` to set up the Cognito identity pool, DynamoDB tables, IAM roles, Cloudfront distribution and S3 bucket to support the web-app - this may take a while the first time
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## Production deployment
-
-Run `npm run deploy`
+5. Run the app using `npm run start` and navigate to [http://localhost:4200](http://localhost:4200)
