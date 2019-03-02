@@ -6,7 +6,7 @@ Demo: https://drydepaulcom
 
 The web application scans notes entered by progression coaches and produces summaries of the main people, dates and places related to a young person using AWS Comprehend entity detection. 
 
-## Running on your machine and AWS cloud
+## Developer instructions
 
 1. Set up your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
 
